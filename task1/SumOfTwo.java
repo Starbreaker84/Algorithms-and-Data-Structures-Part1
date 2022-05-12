@@ -6,9 +6,6 @@ public class SumOfTwo {
         if (list1.count() != list2.count()) {
             return list;
         }
-        if ((list1.count() == 0) && (list2.count() == 0)) {
-            return list;
-        }
         Node node1 = list1.head;
         Node node2 = list2.head;
         while (node1 != null) {
