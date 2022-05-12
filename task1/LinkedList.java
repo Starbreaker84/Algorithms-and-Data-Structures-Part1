@@ -62,7 +62,7 @@ public class LinkedList{
             }
 
         }
-        if (temp == null){
+        if (temp == null && node == null){
             this.tail = null;
         }
         if (temp != null && temp.next == null) {
