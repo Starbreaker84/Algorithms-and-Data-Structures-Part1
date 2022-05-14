@@ -1,7 +1,4 @@
-package LinkedListDummy;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class LinkedListDummy {
     private final Node head;
