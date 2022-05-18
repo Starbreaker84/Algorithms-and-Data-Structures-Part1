@@ -1,38 +1,21 @@
 public class PostfixExpression {
-    private static void multiplication (Stack stack){
-        int res = 1;
-        while (stack.size() > 0){
-            res *= (int) stack.pop();
-        }
-        stack.push(res);
-    }
-
-    private static void addition (Stack stack){
-        int res = 0;
-        while (stack.size() > 0){
-            res += (int) stack.pop();
-        }
-        stack.push(res);
-    }
-
     public static int postfix(Stack stack1){
         Stack<Integer> stack2 = new Stack<Integer>();
         while (stack1.size() > 0){
-            if (stack1.peek() instanceof Integer){
-                stack2.push((int) stack1.peek());
+            Object item = stack1.pop();
+            if (item.equals('+')){
+                stack2.push(stack2.pop() + stack2.pop());
             }
-            if (stack1.peek().equals('*')){
-                multiplication(stack2);
+            if (item.equals('*')){
+                stack2.push(stack2.pop() * stack2.pop());
             }
-            if (stack1.peek().equals('+')){
-                addition(stack2);
-            }
-            if (stack1.peek().equals('=')){
+            if (item.equals('=')){
                 break;
             }
-            stack1.pop();
+            if (item instanceof Integer) {
+                stack2.push((Integer)item);
+            }
         }
-        assert stack2.size() == 1;
         return stack2.pop();
     }
 }
