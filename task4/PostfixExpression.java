@@ -6,6 +6,14 @@ public class PostfixExpression {
             if (item.equals('+')){
                 stack2.push(stack2.pop() + stack2.pop());
             }
+            if (item.equals('-')){
+                int num = stack2.pop();
+                stack2.push(stack2.pop() - num);
+            }
+            if (item.equals('/')){
+                int num = stack2.pop();
+                stack2.push(stack2.pop() / num);
+            }
             if (item.equals('*')){
                 stack2.push(stack2.pop() * stack2.pop());
             }
