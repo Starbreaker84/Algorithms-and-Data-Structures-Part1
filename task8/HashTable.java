@@ -15,7 +15,7 @@ public class HashTable
         if (value == "") return 0;
         int sumOfChars = 0;
         for (int i = 0; i < value.length(); i++){
-            sumOfChars += (int) value.charAt(i) / 10;
+            sumOfChars += value.charAt(i) / 10;
         }
         return sumOfChars % this.size;
     }
