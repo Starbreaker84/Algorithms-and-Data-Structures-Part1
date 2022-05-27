@@ -82,20 +82,17 @@ class NativeCash<T>
             this.values[slot] = value;
         }
         int freeSlot = this.seek(key);
+        if (slot < 0 && freeSlot < 0) {
+            this.remove(this.minimumHitsSlot());
+            freeSlot = this.seek(key);
+        }
         if (slot < 0 && freeSlot >= 0) {
             this.slots[freeSlot] = key;
             this.values[freeSlot] = value;
             this.hits[freeSlot] = 0;
         }
-        if (slot < 0 && freeSlot < 0) {
-            this.remove(this.minimumHitsSlot());
-            freeSlot = this.seek(key);
-            this.slots[freeSlot] = key;
-            this.values[freeSlot] = value;
-            this.hits[freeSlot] = 0;
-        }
     }
-
+    
     public boolean isKey(String key){
         return this.find(key) >= 0;
     }
